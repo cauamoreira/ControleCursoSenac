@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Agenda));
             gridCurso = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
@@ -97,8 +97,8 @@
             // 
             gridCurso.AllowUserToAddRows = false;
             gridCurso.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            gridCurso.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            gridCurso.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             gridCurso.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             gridCurso.BackgroundColor = Color.LightGray;
             gridCurso.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -111,6 +111,7 @@
             gridCurso.RowTemplate.Height = 25;
             gridCurso.Size = new Size(1429, 315);
             gridCurso.TabIndex = 18;
+            gridCurso.CellClick += gridCurso_CellClick;
             // 
             // Column1
             // 
@@ -133,9 +134,9 @@
             // ColunaCursoInicio
             // 
             ColunaCursoInicio.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = null;
-            ColunaCursoInicio.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Format = "d";
+            dataGridViewCellStyle5.NullValue = null;
+            ColunaCursoInicio.DefaultCellStyle = dataGridViewCellStyle5;
             ColunaCursoInicio.HeaderText = "Início";
             ColunaCursoInicio.MinimumWidth = 6;
             ColunaCursoInicio.Name = "ColunaCursoInicio";
@@ -144,9 +145,9 @@
             // ColunaCursoFim
             // 
             ColunaCursoFim.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.Format = "d";
-            dataGridViewCellStyle3.NullValue = null;
-            ColunaCursoFim.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Format = "d";
+            dataGridViewCellStyle6.NullValue = null;
+            ColunaCursoFim.DefaultCellStyle = dataGridViewCellStyle6;
             ColunaCursoFim.HeaderText = "Fim";
             ColunaCursoFim.MinimumWidth = 6;
             ColunaCursoFim.Name = "ColunaCursoFim";
@@ -230,7 +231,6 @@
             btnExportar.TabIndex = 43;
             btnExportar.Text = "Exportar";
             btnExportar.UseVisualStyleBackColor = true;
-            btnExportar.Click += btnExportar_Click;
             // 
             // btnAdicionar
             // 
@@ -335,6 +335,7 @@
             txtMeta.Name = "txtMeta";
             txtMeta.Size = new Size(258, 25);
             txtMeta.TabIndex = 6;
+            txtMeta.KeyPress += NumbersOnly;
             // 
             // label12
             // 
@@ -370,6 +371,7 @@
             txtSala.Name = "txtSala";
             txtSala.Size = new Size(288, 25);
             txtSala.TabIndex = 10;
+            txtSala.KeyPress += NumbersOnly;
             // 
             // txtPesquisar
             // 
@@ -381,6 +383,8 @@
             txtPesquisar.Name = "txtPesquisar";
             txtPesquisar.Size = new Size(288, 25);
             txtPesquisar.TabIndex = 36;
+            txtPesquisar.TextChanged += txtPesquisar_TextChanged;
+            txtPesquisar.KeyPress += txtPesquisar_KeyPress;
             // 
             // label6
             // 
@@ -406,6 +410,7 @@
             cmbCurso.Name = "cmbCurso";
             cmbCurso.Size = new Size(258, 26);
             cmbCurso.TabIndex = 1;
+            cmbCurso.KeyPress += cmbCurso_KeyPress;
             // 
             // lbl
             // 
@@ -472,6 +477,7 @@
             txtTurma.Name = "txtTurma";
             txtTurma.Size = new Size(277, 25);
             txtTurma.TabIndex = 9;
+            txtTurma.KeyPress += NumbersOnly;
             // 
             // txtRealizado
             // 
@@ -483,6 +489,7 @@
             txtRealizado.Name = "txtRealizado";
             txtRealizado.Size = new Size(289, 25);
             txtRealizado.TabIndex = 7;
+            txtRealizado.KeyPress += NumbersOnly;
             // 
             // label1
             // 
@@ -739,6 +746,8 @@
             Name = "Agenda";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Senac";
+            FormClosing += Agenda_FormClosing;
+            Load += Agenda_Load;
             ((System.ComponentModel.ISupportInitialize)gridCurso).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
