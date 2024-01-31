@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ControleAcesso));
             gridHistorico = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
@@ -103,8 +104,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(882, 491);
             Controls.Add(gridHistorico);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ControleAcesso";
-            Text = "ControleAcesso";
+            Text = "CONTROLE DE ACESSO";
             FormClosing += ControleAcesso_FormClosing;
             ((System.ComponentModel.ISupportInitialize)gridHistorico).EndInit();
             ResumeLayout(false);
