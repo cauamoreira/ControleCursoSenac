@@ -148,6 +148,7 @@
             Controls.Add(panel1);
             Name = "NovaSenha";
             Text = "NovaSenha";
+            FormClosing += NovaSenha_FormClosing;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
