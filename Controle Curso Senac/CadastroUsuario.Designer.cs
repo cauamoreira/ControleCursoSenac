@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroUsuario));
             panel1 = new Panel();
             btnVoltaAgenda = new Button();
@@ -96,6 +96,7 @@
             btnVoltaAgenda.TabIndex = 16;
             btnVoltaAgenda.Text = "Sair";
             btnVoltaAgenda.UseVisualStyleBackColor = true;
+            btnVoltaAgenda.Click += btnVoltaAgenda_Click;
             // 
             // dtpDataNascimento
             // 
@@ -123,6 +124,8 @@
             GridConsultarUsuario.Size = new Size(781, 225);
             GridConsultarUsuario.StandardTab = true;
             GridConsultarUsuario.TabIndex = 8;
+            GridConsultarUsuario.CellClick += GridConsultarUsuario_CellClick;
+            GridConsultarUsuario.CellFormatting += GridConsultarUsuario_CellFormatting;
             // 
             // Column1
             // 
@@ -152,9 +155,9 @@
             // Column4
             // 
             Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = null;
-            Column4.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            Column4.DefaultCellStyle = dataGridViewCellStyle1;
             Column4.HeaderText = "Data de Nascimento";
             Column4.MinimumWidth = 6;
             Column4.Name = "Column4";
@@ -194,6 +197,10 @@
             txtCpf.Name = "txtCpf";
             txtCpf.Size = new Size(232, 25);
             txtCpf.TabIndex = 1;
+            txtCpf.TextChanged += txtCpf_TextChanged;
+            txtCpf.KeyDown += txtCpf_KeyDown;
+            txtCpf.KeyPress += txtCpf_KeyPress;
+            txtCpf.Leave += txtCpf_Leave;
             // 
             // txtSenha
             // 
@@ -239,6 +246,7 @@
             btnExcluir.TabIndex = 12;
             btnExcluir.Text = "Excluir";
             btnExcluir.UseVisualStyleBackColor = true;
+            btnExcluir.Click += btnExcluir_Click;
             // 
             // label3
             // 
@@ -284,6 +292,7 @@
             btnAdicionarUsuario.TabIndex = 6;
             btnAdicionarUsuario.Text = "Adicionar";
             btnAdicionarUsuario.UseVisualStyleBackColor = true;
+            btnAdicionarUsuario.Click += btnAdicionarUsuario_Click;
             // 
             // txtUsuario
             // 
@@ -295,6 +304,7 @@
             txtUsuario.Name = "txtUsuario";
             txtUsuario.Size = new Size(232, 25);
             txtUsuario.TabIndex = 0;
+            txtUsuario.KeyPress += txtUsuario_KeyPress;
             // 
             // btnAlterar
             // 
@@ -306,6 +316,7 @@
             btnAlterar.TabIndex = 10;
             btnAlterar.Text = "Alterar";
             btnAlterar.UseVisualStyleBackColor = true;
+            btnAlterar.Click += btnAlterar_Click;
             // 
             // label1
             // 
@@ -349,6 +360,7 @@
             Name = "CadastroUsuario";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CADASTRO DE USUARIO";
+            FormClosing += CadastroUsuario_FormClosing;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)GridConsultarUsuario).EndInit();

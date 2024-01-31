@@ -255,7 +255,16 @@ namespace Controle_Curso_Senac
 
         private void cadastrarUsuárioToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            if (Autenticacao.UsuarioTemPermissaoAdministrador())
+            {
+                CadastroUsuario cadastroUsuario = new CadastroUsuario();
+                cadastroUsuario.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Você não tem acesso administrador.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void acessoToolStripMenuItem_Click(object sender, EventArgs e)
