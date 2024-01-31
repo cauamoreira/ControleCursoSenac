@@ -12,14 +12,235 @@ namespace Controle_Curso_Senac
 {
     public partial class CadastroCurso : Form
     {
-        public CadastroCurso()
+        public CadastroCurso(AgendaCurso agendaCurso)
         {
             InitializeComponent();
+            agendaCurso = agendaCurso;
+            txtCadastroCurso.Focus();
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
+
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            var nome = txtCadastroCurso.Text;
+
+            using (var bd = new BancoDeDados())
+            {
+                var cursoExistente = bd.Cursos.FirstOrDefault(c => c.Nome == nome);
+
+                if (cursoExistente != null)
+                {
+                    MessageBox.Show("Já existe um curso com esse nome. Escolha um nome diferente.",
+                                    "Cadastro de Curso", MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    var novoCurso = new Curso()
+                    {
+                        Nome = nome,
+                    };
+
+                    AdicionarHistoricoNovoCurso(bd, novoCurso);
+
+                    bd.Cursos.Add(novoCurso);
+
+                    bd.SaveChanges();
+
+                    MessageBox.Show("Curso adicionado com sucesso.",
+                        "Cadastro de Curso", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
+                    Listar();
+                    LimparCampos();
+
+                }
+            }
+        }
+
+        private void AdicionarHistoricoNovoCurso(BancoDeDados bd, Curso curso)
+        {
+            bd.Historicos.Add(new Historico
+            {
+                Login = Autenticacao.UsuarioAtual?.Login,
+                DataHora = DateTime.Now,
+                Alteracao = "Adição de Curso",
+                Detalhes = $"Adicionado curso: {curso.Nome}"
+
+            });
+        }
+
+
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            string nome = txtCadastroCurso.Text;
+
+            using (var bd = new BancoDeDados())
+            {
+                var curso = bd.Cursos.Where(w => w.Id == Convert.ToInt32(txtId.Text)).FirstOrDefault();
+
+                if (curso != null)
+                {
+                    string nomeOriginal = curso.Nome;
+
+                    curso.Nome = nome;
+
+                    AdicionarHistoricoAlteracaoCurso(bd, curso, nomeOriginal);
+
+                    bd.SaveChanges();
+
+                    MessageBox.Show("Deseja alterar?", "Cadastro de Curso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    Listar();
+                    LimparCampos();
+                }
+                else
+                {
+                    MessageBox.Show("Curso não encontrado. Verifique o curso informado.");
+                }
+            }
+        }
+
+        private void AdicionarHistoricoAlteracaoCurso(BancoDeDados bd, Curso curso, string nomeOriginal)
+        {
+            bd.Historicos.Add(new Historico
+            {
+                Login = Autenticacao.UsuarioAtual?.Login,
+                DataHora = DateTime.Now,
+                Alteracao = "Alteração de Curso",
+                Detalhes = $"Alterado curso: Id {curso.Id}, Nome: {nomeOriginal} para {curso.Nome}"
+
+            });
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtId.Text))
+            {
+                MessageBox.Show("Deve selecionar o curso que deseja excluir.");
+            }
+            else
+            {
+                DialogResult resultado = MessageBox.Show("Tem certeza que deseja excluir?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (resultado == DialogResult.Yes)
+                {
+                    using (var bd = new BancoDeDados())
+                    {
+                        try
+                        {
+                            var curso = bd.Cursos.FirstOrDefault(w => w.Id == Convert.ToInt32(txtId.Text));
+
+                            if (curso != null)
+                            {
+                                AdicionarHistoricoExclusaoCurso(bd, curso);
+
+                                bd.Cursos.Remove(curso);
+                                bd.SaveChanges();
+                                Listar();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Curso não encontrado. Verifique o curso informado.");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Erro ao excluir: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void AdicionarHistoricoExclusaoCurso(BancoDeDados bd, Curso curso)
+        {
+            bd.Historicos.Add(new Historico
+            {
+                Login = Autenticacao.UsuarioAtual?.Login,
+                DataHora = DateTime.Now,
+                Alteracao = "Exclusão de Curso",
+                Detalhes = $"Excluído curso: {curso.Id}, Nome: {curso.Nome}"
+
+            });
+        }
+
+        private void LimparCampos()
+        {
+            txtId.Text = String.Empty;
+            txtCadastroCurso.Text = String.Empty;
+        }
+
+        private void AbrirFormAgenda()
+        {
+            Agenda agendaCurso = new Agenda();
+            agendaCurso.Show();
+        }
+
+        private void Listar()
+        {
+            GridViewCadastroCurso.Rows.Clear();
+
+            using (var bd = new BancoDeDados())
+            {
+                var Curso = bd.Cursos.ToList();
+
+                foreach (var curso in Curso)
+                {
+                    GridViewCadastroCurso.Rows.Add(
+                        curso.Id,
+                        curso.Nome);
+                }
+
+            }
+        }
+
+
+
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            AbrirFormAgenda();
+            this.Hide();
+        }
+
+        private void CadastroCurso_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                DialogResult iSair = MessageBox.Show("Deseja realmente sair?",
+                                                    "Agenda de Cursos",
+                                                    MessageBoxButtons.YesNo,
+                                                    MessageBoxIcon.Question);
+
+                if (iSair == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+
+                    AbrirFormAgenda();
+                    this.Hide();
+                }
+            }
+        }
+
+        private void GridViewCadastroCurso_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtId.Text = GridViewCadastroCurso.CurrentRow.Cells[0].Value.ToString();
+            txtCadastroCurso.Text = GridViewCadastroCurso.CurrentRow.Cells[1].Value.ToString();
+        }
+
+        private void CadastroCurso_Load(object sender, EventArgs e)
+        {
+            Listar();
+        }
     }
 }
+
