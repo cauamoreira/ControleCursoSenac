@@ -704,6 +704,19 @@ namespace Controle_Curso_Senac
                 }
             }
         }
+
+        private void txtMeta_TextChanged(object sender, EventArgs e)
+        {
+            if (double.TryParse(txtMeta.Text, out double metaValue) && metaValue == 0)
+            {
+                txtMeta.Text = txtMeta.Text;
+            }
+            else
+            {
+                MessageBox.Show("O valor não pode ser zero. Por favor, insira um valor válido." , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    
+            }
+        }
     }
 
 }

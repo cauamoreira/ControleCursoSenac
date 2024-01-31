@@ -126,12 +126,13 @@
             GridViewCadastroCurso.RowTemplate.Height = 25;
             GridViewCadastroCurso.Size = new Size(780, 246);
             GridViewCadastroCurso.TabIndex = 0;
+            GridViewCadastroCurso.CellClick += GridViewCadastroCurso_CellClick;
             // 
             // pictureBox1
             // 
             pictureBox1.BackgroundImageLayout = ImageLayout.Center;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(190, 24);
+            pictureBox1.Location = new Point(204, 25);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(330, 180);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -142,7 +143,7 @@
             // 
             lblId.AutoSize = true;
             lblId.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            lblId.Location = new Point(632, 250);
+            lblId.Location = new Point(713, 261);
             lblId.Name = "lblId";
             lblId.Size = new Size(33, 22);
             lblId.TabIndex = 0;
@@ -159,6 +160,7 @@
             btnAlterar.TabIndex = 8;
             btnAlterar.Text = "Alterar";
             btnAlterar.UseVisualStyleBackColor = true;
+            btnAlterar.Click += btnAlterar_Click;
             // 
             // btnAdicionar
             // 
@@ -170,11 +172,12 @@
             btnAdicionar.TabIndex = 4;
             btnAdicionar.Text = "Adicionar";
             btnAdicionar.UseVisualStyleBackColor = true;
+            btnAdicionar.Click += btnAdicionar_Click;
             // 
             // txtId
             // 
             txtId.BackColor = SystemColors.Window;
-            txtId.Location = new Point(671, 245);
+            txtId.Location = new Point(752, 256);
             txtId.Margin = new Padding(3, 5, 3, 5);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
@@ -192,13 +195,14 @@
             btnSair.TabIndex = 3;
             btnSair.Text = "Sair";
             btnSair.UseVisualStyleBackColor = true;
+            btnSair.Click += btnSair_Click;
             // 
             // txtCadastroCurso
             // 
             txtCadastroCurso.BackColor = SystemColors.HighlightText;
             txtCadastroCurso.BorderStyle = BorderStyle.FixedSingle;
             txtCadastroCurso.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            txtCadastroCurso.Location = new Point(1, 245);
+            txtCadastroCurso.Location = new Point(1, 254);
             txtCadastroCurso.Margin = new Padding(3, 5, 3, 5);
             txtCadastroCurso.Name = "txtCadastroCurso";
             txtCadastroCurso.Size = new Size(312, 29);
@@ -208,7 +212,7 @@
             // 
             label.AutoSize = true;
             label.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label.Location = new Point(2, 223);
+            label.Location = new Point(2, 232);
             label.Name = "label";
             label.Size = new Size(139, 22);
             label.TabIndex = 0;
@@ -224,6 +228,7 @@
             btnExcluir.TabIndex = 6;
             btnExcluir.Text = "Excluir";
             btnExcluir.UseVisualStyleBackColor = true;
+            btnExcluir.Click += btnExcluir_Click;
             // 
             // panel1
             // 
@@ -264,6 +269,8 @@
             Name = "CadastroCurso";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CADASTRO DE CURSO";
+            FormClosing += CadastroCurso_FormClosing;
+            Load += CadastroCurso_Load;
             ((System.ComponentModel.ISupportInitialize)GridViewCadastroCurso).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
