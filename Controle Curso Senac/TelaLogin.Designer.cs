@@ -92,6 +92,7 @@
             txtSenha.PasswordChar = '•';
             txtSenha.Size = new Size(222, 23);
             txtSenha.TabIndex = 38;
+            txtSenha.KeyPress += txtSenha_KeyPress;
             // 
             // picSenha
             // 
@@ -104,6 +105,7 @@
             picSenha.SizeMode = PictureBoxSizeMode.Zoom;
             picSenha.TabIndex = 44;
             picSenha.TabStop = false;
+            picSenha.Click += picSenha_Click;
             // 
             // txtUsuario
             // 
@@ -178,6 +180,8 @@
             Controls.Add(pictureBox1);
             Name = "TelaLogin";
             Text = "TelaLogin";
+            FormClosing += TelaLogin_FormClosing;
+            KeyDown += TelaLogin_KeyDown;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)picLoading).EndInit();
             ((System.ComponentModel.ISupportInitialize)picSenha).EndInit();
