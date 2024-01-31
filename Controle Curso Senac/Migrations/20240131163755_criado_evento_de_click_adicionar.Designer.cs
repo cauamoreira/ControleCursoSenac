@@ -3,6 +3,7 @@ using System;
 using Controle_Curso_Senac;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Controle_Curso_Senac.Migrations
 {
     [DbContext(typeof(BancoDeDados))]
-    partial class BancoDeDadosModelSnapshot : ModelSnapshot
+    [Migration("20240131163755_criado_evento_de_click_adicionar")]
+    partial class criado_evento_de_click_adicionar
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.25");

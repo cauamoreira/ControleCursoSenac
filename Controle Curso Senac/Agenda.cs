@@ -1,8 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Controle_Curso_Senac
 {
-    public class Agenda
+    public class AgendaCurso
     {
         [Key]
         public int Id { get; set; }
@@ -21,7 +26,5 @@ namespace Controle_Curso_Senac
         public string? Horario { get; set; }
         public string? Turma { get; set; }
         public string? Sala { get; set; }
-
     }
 }
-
