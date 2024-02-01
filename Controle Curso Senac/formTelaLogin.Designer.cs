@@ -1,6 +1,6 @@
 ﻿namespace Controle_Curso_Senac
 {
-    partial class TelaLogin
+    partial class formTelaLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaLogin));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formTelaLogin));
             pictureBox1 = new PictureBox();
             picLoading = new PictureBox();
             label3 = new Label();

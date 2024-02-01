@@ -1,6 +1,6 @@
 ﻿namespace Controle_Curso_Senac
 {
-    partial class CadastroUsuario
+    partial class formCadastroUsuario
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroUsuario));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formCadastroUsuario));
             panel1 = new Panel();
             btnVoltaAgenda = new Button();
             dtpDataNascimento = new DateTimePicker();

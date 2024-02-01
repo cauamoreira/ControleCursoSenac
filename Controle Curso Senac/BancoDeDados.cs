@@ -4,7 +4,7 @@ namespace Controle_Curso_Senac
 {
     public class BancoDeDados : DbContext
     {
-        public DbSet<AgendaCurso> AgendaCursos{ get; set; }
+        public DbSet<Agenda> Agendas{ get; set; }
 
         public DbSet<Usuario> Usuarios { get; set; }
 

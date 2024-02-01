@@ -10,19 +10,19 @@ using System.Windows.Forms;
 
 namespace Controle_Curso_Senac
 {
-    public partial class TelaLogin : Form
+    public partial class formTelaLogin : Form
     {
 
         // determinar se a senha está visível ou oculta
         private bool _podeVerSenha = false;
-        public TelaLogin()
+        public formTelaLogin()
         {
             InitializeComponent();
         }
 
         private void AbrirFormPrincipal()
         {
-            Agenda agenda_De_Curso = new Agenda();
+            AgendaCurso agenda_De_Curso = new AgendaCurso();
             agenda_De_Curso.Show();
             this.Hide();
         }

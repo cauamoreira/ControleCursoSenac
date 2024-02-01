@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Controle_Curso_Senac
 {
-    public partial class CadastroUsuario : Form
+    public partial class formCadastroUsuario : Form
     {
         private bool _podeVerSenha = false;
-        public CadastroUsuario()
+        public formCadastroUsuario()
         {
             InitializeComponent();
             txtCpf.TextChanged += txtCpf_TextChanged;
@@ -255,7 +255,7 @@ namespace Controle_Curso_Senac
 
         private void AbrirAgendaCursos()
         {
-            Agenda agenda_De_Curso = new Agenda();
+            AgendaCurso agenda_De_Curso = new AgendaCurso();
             agenda_De_Curso.Show();
         }
 

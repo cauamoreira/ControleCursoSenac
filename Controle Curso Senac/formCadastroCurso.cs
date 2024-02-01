@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Controle_Curso_Senac
 {
-    public partial class CadastroCurso : Form
+    public partial class formCadastroCurso : Form
     {
-        public CadastroCurso(Agenda agendaCurso)
+        public formCadastroCurso(AgendaCurso agendaCurso)
         {
             InitializeComponent();
             agendaCurso = agendaCurso;
@@ -178,7 +178,7 @@ namespace Controle_Curso_Senac
 
         private void AbrirFormAgenda()
         {
-            Agenda agendaCurso = new Agenda();
+            AgendaCurso agendaCurso = new AgendaCurso();
             agendaCurso.Show();
         }
 

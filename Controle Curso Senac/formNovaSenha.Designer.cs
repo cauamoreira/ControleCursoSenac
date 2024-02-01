@@ -1,6 +1,6 @@
 ﻿namespace Controle_Curso_Senac
 {
-    partial class NovaSenha
+    partial class formNovaSenha
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NovaSenha));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formNovaSenha));
             panel1 = new Panel();
             txtConfirmarSenha = new TextBox();
             btnCancelar = new Button();

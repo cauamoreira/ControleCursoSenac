@@ -17,12 +17,12 @@ using System.Collections.ObjectModel;
 
 namespace Controle_Curso_Senac
 {
-    public partial class Agenda : Form
+    public partial class AgendaCurso : Form
 
     {
         // Lista que armazena os dias selecionados na CheckBoxList
         private List<string> diasSelecionados = new List<string>();
-        public Agenda()
+        public AgendaCurso()
         {
 
             InitializeComponent();
@@ -66,7 +66,7 @@ namespace Controle_Curso_Senac
                 diasSelecionados = clbDias.CheckedItems.OfType<string>().ToList();
 
                 // Cria um novo curso e adiciona ao banco de dados
-                var curso = new AgendaCurso()
+                var curso = new Agenda()
                 {
                     Nome = cmbCurso.Text,
                     Inicio = dtpInicio.Value.Date,
@@ -119,7 +119,7 @@ namespace Controle_Curso_Senac
 
             using (var bd = new BancoDeDados())
             {
-                var cursos = bd.AgendaCursos.ToList();
+                var cursos = bd.Agendas.ToList();
 
 
                 foreach (var curso in cursos)
@@ -177,7 +177,7 @@ namespace Controle_Curso_Senac
         // Método para verificar se um curso com os mesmos detalhes já existe
         private bool CursoExistente(BancoDeDados bd, string turma, string sala, string horario, DateTime inicio)
         {
-            var cursoExistente = bd.AgendaCursos
+            var cursoExistente = bd.Agendas
                 .Any(c =>
                     c.Turma == turma &&
                     c.Sala == sala &&
@@ -194,9 +194,9 @@ namespace Controle_Curso_Senac
             return false;
         }
 
-        private void AdicionarCurso(BancoDeDados bd, AgendaCurso curso)
+        private void AdicionarCurso(BancoDeDados bd, Agenda curso)
         {
-            bd.AgendaCursos.Add(curso);
+            bd.Agendas.Add(curso);
             bd.SaveChanges();
         }
 
@@ -245,13 +245,13 @@ namespace Controle_Curso_Senac
                         try
                         {
                             // Obtém o curso a ser excluído pelo ID
-                            var curso = bd.AgendaCursos.FirstOrDefault(w => w.Id == Convert.ToInt32(txtId.Text));
+                            var curso = bd.Agendas.FirstOrDefault(w => w.Id == Convert.ToInt32(txtId.Text));
 
                             if (curso != null)
                             {
                                 AdicionarHistoricoExclusao(bd, curso);
 
-                                bd.AgendaCursos.Remove(curso);
+                                bd.Agendas.Remove(curso);
                                 bd.SaveChanges();
                                 Listar();
                                 LimparCampos();
@@ -270,7 +270,7 @@ namespace Controle_Curso_Senac
             }
         }
 
-        private void AdicionarHistoricoExclusao(BancoDeDados bd, AgendaCurso curso)
+        private void AdicionarHistoricoExclusao(BancoDeDados bd, Agenda curso)
         {
             bd.Historicos.Add(new Historico
             {
@@ -297,7 +297,7 @@ namespace Controle_Curso_Senac
 
             using (var bd = new BancoDeDados())
             {
-                var curso = bd.AgendaCursos
+                var curso = bd.Agendas
                     .Where(w => w.Id == Convert.ToInt32(txtId.Text))
                     .FirstOrDefault();
 
@@ -339,7 +339,7 @@ namespace Controle_Curso_Senac
 
 
                     // Verifica se já existe um curso com os mesmos detalhes
-                    var mesmoHorario = bd.AgendaCursos
+                    var mesmoHorario = bd.Agendas
                         .Any(c =>
                             c.Id != curso.Id &&
                             c.Turma == curso.Turma &&
@@ -422,7 +422,7 @@ namespace Controle_Curso_Senac
           using (var bd = new BancoDeDados())
            {
 
-               var todosCursos = bd.AgendaCursos.ToList();
+               var todosCursos = bd.Agendas.ToList();
 
                ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
                using (ExcelPackage excelPackage = new ExcelPackage())
@@ -483,7 +483,7 @@ namespace Controle_Curso_Senac
 
         private void LogOut()
         {
-            TelaLogin telaLogin = new TelaLogin();
+            formTelaLogin telaLogin = new formTelaLogin();
             telaLogin.Show();
         }
 
@@ -534,7 +534,7 @@ namespace Controle_Curso_Senac
 
         private void cadastrarCursoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CadastroCurso cadastroCurso = new CadastroCurso(this);
+            formCadastroCurso cadastroCurso = new formCadastroCurso(this);
 
             cadastroCurso.Show();
             this.Hide();
@@ -544,7 +544,7 @@ namespace Controle_Curso_Senac
         {
             if (Autenticacao.UsuarioTemPermissaoAdministrador())
             {
-                CadastroUsuario cadastroUsuario = new CadastroUsuario();
+                formCadastroUsuario cadastroUsuario = new formCadastroUsuario();
                 cadastroUsuario.Show();
                 this.Hide();
             }
@@ -558,7 +558,7 @@ namespace Controle_Curso_Senac
         {
             if (Autenticacao.UsuarioTemPermissaoAdministrador())
             {
-                ControleAcesso controleAcesso = new ControleAcesso();
+                formControleAcesso controleAcesso = new formControleAcesso();
                 controleAcesso.Show();
                 this.Hide();
             }
@@ -641,7 +641,7 @@ namespace Controle_Curso_Senac
                 var textoPesquisa = txtPesquisar.Text.ToLower();
 
                 // Filtra os cursos com base no texto de pesquisa
-                var cursosFiltrados = bd.AgendaCursos
+                var cursosFiltrados = bd.Agendas
                     .Where(c =>
                         c.Nome.ToLower().Contains(textoPesquisa) ||
                         c.Turma.ToLower().Contains(textoPesquisa) ||

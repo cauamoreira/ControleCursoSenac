@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Controle_Curso_Senac
 {
-    public partial class ControleAcesso : Form
+    public partial class formControleAcesso : Form
     {
-        public ControleAcesso()
+        public formControleAcesso()
         {
             InitializeComponent();
             CarregarHistorico();
@@ -43,7 +43,7 @@ namespace Controle_Curso_Senac
 
         private void AbrirFormAgenda()
         {
-            Agenda agenda_De_Curso = new Agenda();
+            AgendaCurso agenda_De_Curso = new AgendaCurso();
             agenda_De_Curso.Show();
         }
 

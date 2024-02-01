@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Controle_Curso_Senac
 {
-    public partial class EsqueceuSenha : Form
+    public partial class formEsqueceuSenha : Form
     {
-        public EsqueceuSenha()
+        public formEsqueceuSenha()
         {
             InitializeComponent();
         }
@@ -45,7 +45,7 @@ namespace Controle_Curso_Senac
 
         private void TelaLogin()
         {
-            TelaLogin telaLogin = new TelaLogin();
+            formTelaLogin telaLogin = new formTelaLogin();
             telaLogin.Show();
         }
 
@@ -115,7 +115,7 @@ namespace Controle_Curso_Senac
 
         private void EsqueceuSenha_FormClosing(object sender, FormClosingEventArgs e)
         {
-            TelaLogin telaLogin = new TelaLogin();
+            formTelaLogin telaLogin = new formTelaLogin();
             telaLogin.Show();
         }
     }

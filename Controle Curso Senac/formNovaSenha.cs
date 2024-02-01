@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace Controle_Curso_Senac
 {
-    public partial class NovaSenha : Form
+    public partial class formNovaSenha : Form
     {
         private Usuario usuario;
-        public NovaSenha()
+        public formNovaSenha()
         {
             InitializeComponent();
             this.usuario = usuario;
@@ -71,7 +71,7 @@ namespace Controle_Curso_Senac
         }
         private void AbrirTelaLogin()
         {
-            TelaLogin telaLogin = new TelaLogin();
+            formTelaLogin telaLogin = new formTelaLogin();
             telaLogin.Show();
         }
 
