@@ -12,7 +12,7 @@ namespace Controle_Curso_Senac
 {
     public partial class CadastroCurso : Form
     {
-        public CadastroCurso(AgendaCurso agendaCurso)
+        public CadastroCurso(Agenda agendaCurso)
         {
             InitializeComponent();
             agendaCurso = agendaCurso;

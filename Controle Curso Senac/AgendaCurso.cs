@@ -1,19 +1,17 @@
 
-using System.ComponentModel;
+
 using OfficeOpenXml;
+
 using Microsoft.VisualBasic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Forms;
-
-using OfficeOpenXml;
+using Excel = Microsoft.Office.Interop.Excel;
 using System.IO.Pipes;
 using System.IO.Pipelines;
-
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-
 using System.Globalization;
 using System.Collections.ObjectModel;
 
@@ -219,7 +217,7 @@ namespace Controle_Curso_Senac
 
         private void btnLimparCampos_Click(object sender, EventArgs e)
         {
-
+            LimparCampos();
         }
 
         private void iExcluir()
@@ -419,72 +417,69 @@ namespace Controle_Curso_Senac
             iAlterar();
         }
 
-        //private void iExportar()
-        //{
-        //    using (var bd = new BancoDeDados())
-        //    {
+        private void iExportar()
+        {
+          using (var bd = new BancoDeDados())
+           {
 
-        //        var todosCursos = bd.AgendaCursos.ToList();
+               var todosCursos = bd.AgendaCursos.ToList();
 
-        //        ExcelPackage = LicenseContext.NonCommercial;
-        //        using (ExcelPackage excelPackage = new ExcelPackage())
-        //        {
+               ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+               using (ExcelPackage excelPackage = new ExcelPackage())
+               {
 
-        //            ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("Cursos");
+                   ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("Cursos");
 
-        //            worksheet.Cells[1, 1].Value = "ID";
-        //            worksheet.Cells[1, 2].Value = "Curso";
-        //            worksheet.Cells[1, 3].Value = "Inicio";
-        //            worksheet.Cells[1, 4].Value = "Fim";
-        //            worksheet.Cells[1, 5].Value = "Dias";
-        //            worksheet.Cells[1, 6].Value = "Horario";
-        //            worksheet.Cells[1, 7].Value = "Meta de Alunos";
-        //            worksheet.Cells[1, 8].Value = "Matriculados";
-        //            worksheet.Cells[1, 9].Value = "Valor";
-        //            worksheet.Cells[1, 10].Value = "Turma";
-        //            worksheet.Cells[1, 11].Value = "Sala";
+                    worksheet.Cells[1, 1].Value = "ID";
+                    worksheet.Cells[1, 2].Value = "Curso";
+                    worksheet.Cells[1, 3].Value = "Inicio";
+                    worksheet.Cells[1, 4].Value = "Fim";
+                    worksheet.Cells[1, 5].Value = "Dias";
+                    worksheet.Cells[1, 6].Value = "Horario";
+                    worksheet.Cells[1, 7].Value = "Meta de Alunos";
+                    worksheet.Cells[1, 8].Value = "Matriculados";
+                    worksheet.Cells[1, 9].Value = "Valor";
+                    worksheet.Cells[1, 10].Value = "Turma";
+                    worksheet.Cells[1, 11].Value = "Sala";
 
-        //            int row = 2;
-        //            foreach (var curso in todosCursos)
-        //            {
-        //                worksheet.Cells[row, 1].Value = curso.Id;
-        //                worksheet.Cells[row, 2].Value = curso.Nome;
-        //                worksheet.Cells[row, 3].Value = curso.Inicio.ToString("dd-MM-yyyy");
-        //                worksheet.Cells[row, 4].Value = curso.Fim.ToString("dd-MM-yyyy");
-        //                worksheet.Cells[row, 5].Value = curso.Dias;
-        //                worksheet.Cells[row, 6].Value = curso.Horario;
-        //                worksheet.Cells[row, 7].Value = curso.Meta;
-        //                worksheet.Cells[row, 8].Value = curso.Realizado;
-        //                worksheet.Cells[row, 9].Value = curso.Valor;
-        //                worksheet.Cells[row, 10].Value = curso.Turma;
-        //                worksheet.Cells[row, 11].Value = curso.Sala;
+                    int row = 2;
+                    foreach (var curso in todosCursos)
+                    {
+                        worksheet.Cells[row, 1].Value = curso.Id;
+                        worksheet.Cells[row, 2].Value = curso.Nome;
+                        worksheet.Cells[row, 3].Value = curso.Inicio.ToString("dd-MM-yyyy");
+                        worksheet.Cells[row, 4].Value = curso.Fim.ToString("dd-MM-yyyy");
+                       worksheet.Cells[row, 5].Value = curso.Dias;
+                        worksheet.Cells[row, 6].Value = curso.Horario;
+                       worksheet.Cells[row, 7].Value = curso.Meta;
+                        worksheet.Cells[row, 8].Value = curso.Realizado;
+                     worksheet.Cells[row, 9].Value = curso.Valor;
+                       worksheet.Cells[row, 10].Value = curso.Turma;
+                       worksheet.Cells[row, 11].Value = curso.Sala;
 
-        //                row++;
-        //            }
+                        row++;
+                   }
 
 
-        //            SaveFileDialog saveFileDialog = new SaveFileDialog();
-        //            saveFileDialog.Filter = "Excel Files (*.xlsx)|*.xlsx";
-        //            saveFileDialog.FileName = "Agenda de Cursos.xlsx";
+                   SaveFileDialog saveFileDialog = new SaveFileDialog();
+                   saveFileDialog.Filter = "Excel Files (*.xlsx)|*.xlsx";
+                   saveFileDialog.FileName = "Agenda de Cursos.xlsx";
 
-        //            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-        //            {
-        //                excelPackage.SaveAs(new FileInfo(saveFileDialog.FileName));
-        //            }
-        //            MessageBox.Show("Exportado com sucesso.", "Agenda de Cursos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                   if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                   {
+                       excelPackage.SaveAs(new FileInfo(saveFileDialog.FileName));
+                   }
+                    MessageBox.Show("Exportado com sucesso.", "Agenda de Cursos", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-        //        }
+                }
 
-        //        bd.SaveChanges();
-        //        LimparCampos();
+               bd.SaveChanges();
+               LimparCampos();
 
-        //    }
-        //}
+           }
+        }
 
-        //private void btnExportar_Click(object sender, EventArgs e)
-        //{
-        //    iExportar();
-        //}
+      
 
         private void LogOut()
         {
@@ -492,7 +487,7 @@ namespace Controle_Curso_Senac
             telaLogin.Show();
         }
 
-        private void btnSair_Click(object sender, EventArgs e)
+        private void iSair()
         {
             DialogResult iSair = MessageBox.Show("Deseja realmente sair?",
                                                    "Agenda de Cursos",
@@ -507,6 +502,11 @@ namespace Controle_Curso_Senac
             }
         }
 
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            iSair();
+        }
+
         private void adicionarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             iAdicionar();
@@ -514,12 +514,12 @@ namespace Controle_Curso_Senac
 
         private void exportarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            iExportar();
         }
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            iSair();
         }
 
         private void limparToolStripMenuItem_Click(object sender, EventArgs e)
@@ -529,12 +529,15 @@ namespace Controle_Curso_Senac
 
         private void deletarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            iExcluir();
         }
 
         private void cadastrarCursoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            CadastroCurso cadastroCurso = new CadastroCurso(this);
 
+            cadastroCurso.Show();
+            this.Hide();
         }
 
         private void cadastrarUsuárioToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -553,6 +556,16 @@ namespace Controle_Curso_Senac
 
         private void acessoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (Autenticacao.UsuarioTemPermissaoAdministrador())
+            {
+                ControleAcesso controleAcesso = new ControleAcesso();
+                controleAcesso.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Você não tem acesso administrador.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
         }
 
@@ -705,18 +718,7 @@ namespace Controle_Curso_Senac
             }
         }
 
-        private void txtMeta_TextChanged(object sender, EventArgs e)
-        {
-            if (double.TryParse(txtMeta.Text, out double metaValue) && metaValue == 0)
-            {
-                txtMeta.Text = txtMeta.Text;
-            }
-            else
-            {
-                MessageBox.Show("O valor não pode ser zero. Por favor, insira um valor válido." , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    
-            }
-        }
+       
     }
 
 }
