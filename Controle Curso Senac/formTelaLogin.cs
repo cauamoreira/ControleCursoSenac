@@ -18,6 +18,8 @@ namespace Controle_Curso_Senac
         public formTelaLogin()
         {
             InitializeComponent();
+            txtUsuario.Focus();
+            picLoading.Hide();
         }
 
         private void AbrirFormPrincipal()
@@ -79,12 +81,12 @@ namespace Controle_Curso_Senac
 
                     AbrirFormPrincipal();
 
-                    // ControleAcesso controleAcesso = Application.OpenForms.OfType<ControleAcesso>().FirstOrDefault();
+                     formControleAcesso controleAcesso = Application.OpenForms.OfType<formControleAcesso>().FirstOrDefault();
 
-                    //  if (controleAcesso != null)
-                    // {
-                    //   controleAcesso.CarregarHistorico();
-                    //  }
+                      if (controleAcesso != null)
+                     {
+                       controleAcesso.CarregarHistorico();
+                      }
                 }
                 else
                 {
@@ -98,7 +100,8 @@ namespace Controle_Curso_Senac
 
         private void label3_Click(object sender, EventArgs e)
         {
-
+            formEsqueceuSenha formEsqueceuSenha = new formEsqueceuSenha();
+            formEsqueceuSenha.Show();
         }
 
         private async void picSenha_Click(object sender, EventArgs e)
