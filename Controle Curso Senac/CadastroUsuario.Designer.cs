@@ -89,7 +89,7 @@
             // btnVoltaAgenda
             // 
             btnVoltaAgenda.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnVoltaAgenda.Location = new Point(584, 446);
+            btnVoltaAgenda.Location = new Point(584, 441);
             btnVoltaAgenda.Margin = new Padding(3, 2, 3, 2);
             btnVoltaAgenda.Name = "btnVoltaAgenda";
             btnVoltaAgenda.Size = new Size(96, 30);
@@ -239,7 +239,7 @@
             // btnExcluir
             // 
             btnExcluir.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnExcluir.Location = new Point(424, 446);
+            btnExcluir.Location = new Point(424, 441);
             btnExcluir.Margin = new Padding(3, 2, 3, 2);
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Size = new Size(96, 30);
@@ -285,7 +285,7 @@
             // btnAdicionarUsuario
             // 
             btnAdicionarUsuario.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAdicionarUsuario.Location = new Point(108, 446);
+            btnAdicionarUsuario.Location = new Point(108, 441);
             btnAdicionarUsuario.Margin = new Padding(3, 2, 3, 2);
             btnAdicionarUsuario.Name = "btnAdicionarUsuario";
             btnAdicionarUsuario.Size = new Size(96, 30);
@@ -309,7 +309,7 @@
             // btnAlterar
             // 
             btnAlterar.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAlterar.Location = new Point(261, 446);
+            btnAlterar.Location = new Point(261, 441);
             btnAlterar.Margin = new Padding(3, 2, 3, 2);
             btnAlterar.Name = "btnAlterar";
             btnAlterar.Size = new Size(96, 30);

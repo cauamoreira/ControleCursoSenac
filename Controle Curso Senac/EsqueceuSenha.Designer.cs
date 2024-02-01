@@ -59,19 +59,17 @@
             panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(693, 687);
+            panel1.Size = new Size(606, 515);
             panel1.TabIndex = 1;
             // 
             // pictureBox2
             // 
             pictureBox2.BackColor = SystemColors.ActiveCaption;
             pictureBox2.Image = Properties.Resources.calendario;
-            pictureBox2.Location = new Point(145, 459);
-            pictureBox2.Margin = new Padding(3, 4, 3, 4);
+            pictureBox2.Location = new Point(127, 344);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(27, 32);
+            pictureBox2.Size = new Size(24, 24);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 32;
             pictureBox2.TabStop = false;
@@ -83,10 +81,9 @@
             dtpDataNascimento.CustomFormat = "dd-MM-yyyy";
             dtpDataNascimento.Font = new Font("Microsoft PhagsPa", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             dtpDataNascimento.Format = DateTimePickerFormat.Custom;
-            dtpDataNascimento.Location = new Point(175, 459);
-            dtpDataNascimento.Margin = new Padding(3, 4, 3, 4);
+            dtpDataNascimento.Location = new Point(153, 344);
             dtpDataNascimento.Name = "dtpDataNascimento";
-            dtpDataNascimento.Size = new Size(317, 28);
+            dtpDataNascimento.Size = new Size(278, 24);
             dtpDataNascimento.TabIndex = 2;
             dtpDataNascimento.Value = new DateTime(2024, 1, 13, 0, 0, 0, 0);
             // 
@@ -95,10 +92,9 @@
             btnCancelar.BackColor = SystemColors.ButtonHighlight;
             btnCancelar.Font = new Font("Microsoft PhagsPa", 10F, FontStyle.Bold, GraphicsUnit.Point);
             btnCancelar.ForeColor = SystemColors.Desktop;
-            btnCancelar.Location = new Point(176, 545);
-            btnCancelar.Margin = new Padding(3, 4, 3, 4);
+            btnCancelar.Location = new Point(154, 409);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(110, 40);
+            btnCancelar.Size = new Size(96, 30);
             btnCancelar.TabIndex = 3;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
@@ -108,10 +104,9 @@
             // 
             pictureBox3.BackColor = SystemColors.ActiveCaption;
             pictureBox3.Image = Properties.Resources.do_utilizador;
-            pictureBox3.Location = new Point(150, 376);
-            pictureBox3.Margin = new Padding(3, 4, 3, 4);
+            pictureBox3.Location = new Point(131, 282);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(23, 32);
+            pictureBox3.Size = new Size(20, 24);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 31;
             pictureBox3.TabStop = false;
@@ -121,10 +116,9 @@
             btnProximo.BackColor = SystemColors.HighlightText;
             btnProximo.Font = new Font("Microsoft PhagsPa", 10F, FontStyle.Bold, GraphicsUnit.Point);
             btnProximo.ForeColor = SystemColors.Desktop;
-            btnProximo.Location = new Point(384, 545);
-            btnProximo.Margin = new Padding(3, 4, 3, 4);
+            btnProximo.Location = new Point(336, 409);
             btnProximo.Name = "btnProximo";
-            btnProximo.Size = new Size(110, 40);
+            btnProximo.Size = new Size(96, 30);
             btnProximo.TabIndex = 4;
             btnProximo.Text = "Próximo";
             btnProximo.UseVisualStyleBackColor = false;
@@ -135,10 +129,9 @@
             txtCpfUsuario.Anchor = AnchorStyles.None;
             txtCpfUsuario.BackColor = SystemColors.HighlightText;
             txtCpfUsuario.BorderStyle = BorderStyle.FixedSingle;
-            txtCpfUsuario.Location = new Point(175, 375);
-            txtCpfUsuario.Margin = new Padding(3, 4, 3, 4);
+            txtCpfUsuario.Location = new Point(153, 281);
             txtCpfUsuario.Name = "txtCpfUsuario";
-            txtCpfUsuario.Size = new Size(317, 27);
+            txtCpfUsuario.Size = new Size(278, 23);
             txtCpfUsuario.TabIndex = 1;
             txtCpfUsuario.TextChanged += txtCpfUsuario_TextChanged;
             txtCpfUsuario.KeyDown += txtCpfUsuario_KeyDown;
@@ -149,9 +142,9 @@
             label1.BackColor = SystemColors.ActiveCaption;
             label1.Font = new Font("Microsoft PhagsPa", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(175, 348);
+            label1.Location = new Point(153, 263);
             label1.Name = "label1";
-            label1.Size = new Size(45, 22);
+            label1.Size = new Size(35, 17);
             label1.TabIndex = 0;
             label1.Text = "CPF:";
             // 
@@ -160,9 +153,9 @@
             label2.AutoSize = true;
             label2.BackColor = SystemColors.ActiveCaption;
             label2.Font = new Font("Microsoft PhagsPa", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(175, 432);
+            label2.Location = new Point(153, 326);
             label2.Name = "label2";
-            label2.Size = new Size(177, 22);
+            label2.Size = new Size(137, 17);
             label2.TabIndex = 0;
             label2.Text = "Data de Nascimento:";
             // 
@@ -170,22 +163,20 @@
             // 
             pictureBox1.Anchor = AnchorStyles.None;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(175, 36);
-            pictureBox1.Margin = new Padding(3, 4, 3, 4);
+            pictureBox1.Location = new Point(153, 27);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(319, 269);
+            pictureBox1.Size = new Size(279, 202);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
             // EsqueceuSenha
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(693, 687);
+            ClientSize = new Size(606, 515);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 4, 3, 4);
             Name = "EsqueceuSenha";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Log In | Esqueceu a senha";
