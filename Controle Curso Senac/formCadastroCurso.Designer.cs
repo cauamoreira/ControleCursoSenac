@@ -128,7 +128,7 @@
             GridViewCadastroCurso.ReadOnly = true;
             GridViewCadastroCurso.RowHeadersWidth = 51;
             GridViewCadastroCurso.RowTemplate.Height = 25;
-            GridViewCadastroCurso.Size = new Size(682, 184);
+            GridViewCadastroCurso.Size = new Size(680, 184);
             GridViewCadastroCurso.TabIndex = 0;
             GridViewCadastroCurso.CellClick += GridViewCadastroCurso_CellClick;
             // 
@@ -148,7 +148,7 @@
             // 
             lblId.AutoSize = true;
             lblId.Font = new Font("Microsoft PhagsPa", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            lblId.Location = new Point(615, 194);
+            lblId.Location = new Point(615, 186);
             lblId.Name = "lblId";
             lblId.Size = new Size(26, 18);
             lblId.TabIndex = 0;
@@ -182,7 +182,7 @@
             // txtId
             // 
             txtId.BackColor = SystemColors.Window;
-            txtId.Location = new Point(649, 190);
+            txtId.Location = new Point(649, 182);
             txtId.Margin = new Padding(3, 4, 3, 4);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
@@ -264,7 +264,7 @@
             panel1.TabIndex = 1;
             panel1.Paint += panel1_Paint;
             // 
-            // CadastroCurso
+            // formCadastroCurso
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -272,7 +272,7 @@
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
-            Name = "CadastroCurso";
+            Name = "formCadastroCurso";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CADASTRO DE CURSO";
             FormClosing += CadastroCurso_FormClosing;

@@ -102,6 +102,7 @@ namespace Controle_Curso_Senac
         {
             formEsqueceuSenha formEsqueceuSenha = new formEsqueceuSenha();
             formEsqueceuSenha.Show();
+            this.Hide();
         }
 
         private async void picSenha_Click(object sender, EventArgs e)

@@ -507,10 +507,6 @@ namespace Controle_Curso_Senac
             iSair();
         }
 
-        private void adicionarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            iAdicionar();
-        }
 
         private void exportarToolStripMenuItem_Click(object sender, EventArgs e)
         {

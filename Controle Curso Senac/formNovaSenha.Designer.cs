@@ -140,16 +140,16 @@
             pictureBox1.TabIndex = 34;
             pictureBox1.TabStop = false;
             // 
-            // NovaSenha
+            // formNovaSenha
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(627, 526);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "NovaSenha";
+            Name = "formNovaSenha";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Log in | Redefinir senha";
+            Text = "Log in | Redefinir a senha";
             FormClosing += NovaSenha_FormClosing;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

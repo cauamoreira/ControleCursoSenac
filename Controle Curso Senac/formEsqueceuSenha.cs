@@ -30,9 +30,9 @@ namespace Controle_Curso_Senac
 
                 if (usuario != null)
                 {
-                    // Fechar a janela atual e abrir o form para definir nova senha
-                    this.Close();
-                    // AbrirNovaSenha(usuario);
+                    //Fechar a janela atual e abrir o form para definir nova senha
+                    this.Hide();
+                     AbrirNovaSenha(usuario);
 
 
                 }
@@ -41,6 +41,13 @@ namespace Controle_Curso_Senac
                     MessageBox.Show("CPF ou data de nascimento inválidos.", "Falha ao alterar.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void AbrirNovaSenha(Usuario usuario)
+        {
+            formNovaSenha novaSenha = new formNovaSenha(usuario);
+            novaSenha.Show();
+            this.Hide();
         }
 
         private void TelaLogin()

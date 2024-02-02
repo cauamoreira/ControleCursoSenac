@@ -14,7 +14,7 @@ namespace Controle_Curso_Senac
     public partial class formNovaSenha : Form
     {
         private Usuario usuario;
-        public formNovaSenha()
+        public formNovaSenha(Usuario usuario)
         {
             InitializeComponent();
             this.usuario = usuario;
@@ -27,6 +27,12 @@ namespace Controle_Curso_Senac
             {
                 // Atualizar a senha do usuário no banco de dados
                 usuario.Senha = txtConfirmarSenha.Text;
+
+                if (usuario.Senha.Length < 6 || !usuario.Senha.Any(char.IsDigit) || !usuario.Senha.Any(char.IsLetter))
+                {
+                    MessageBox.Show("A senha deve ter pelo menos 6 caracteres, incluindo pelo menos um número e uma letra.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
                 using (var bd = new BancoDeDados())
                 {

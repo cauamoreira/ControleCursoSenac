@@ -63,7 +63,7 @@
             // 
             picLoading.BackColor = Color.White;
             picLoading.Image = (Image)resources.GetObject("picLoading.Image");
-            picLoading.Location = new Point(318, 350);
+            picLoading.Location = new Point(328, 356);
             picLoading.Name = "picLoading";
             picLoading.Size = new Size(79, 42);
             picLoading.SizeMode = PictureBoxSizeMode.Zoom;
@@ -77,7 +77,7 @@
             label3.Cursor = Cursors.Hand;
             label3.Font = new Font("Microsoft PhagsPa", 10F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
             label3.ForeColor = Color.Navy;
-            label3.Location = new Point(297, 282);
+            label3.Location = new Point(305, 291);
             label3.Name = "label3";
             label3.Size = new Size(129, 18);
             label3.TabIndex = 45;
@@ -88,7 +88,7 @@
             // 
             txtSenha.BackColor = SystemColors.HighlightText;
             txtSenha.BorderStyle = BorderStyle.FixedSingle;
-            txtSenha.Location = new Point(263, 256);
+            txtSenha.Location = new Point(263, 264);
             txtSenha.Name = "txtSenha";
             txtSenha.PasswordChar = '•';
             txtSenha.Size = new Size(222, 23);
@@ -100,7 +100,7 @@
             picSenha.BackColor = SystemColors.ButtonHighlight;
             picSenha.Cursor = Cursors.Hand;
             picSenha.Image = Properties.Resources.visualizar;
-            picSenha.Location = new Point(232, 256);
+            picSenha.Location = new Point(232, 265);
             picSenha.Name = "picSenha";
             picSenha.Size = new Size(29, 20);
             picSenha.SizeMode = PictureBoxSizeMode.Zoom;
@@ -112,7 +112,7 @@
             // 
             txtUsuario.BackColor = SystemColors.HighlightText;
             txtUsuario.BorderStyle = BorderStyle.FixedSingle;
-            txtUsuario.Location = new Point(263, 216);
+            txtUsuario.Location = new Point(263, 218);
             txtUsuario.Name = "txtUsuario";
             txtUsuario.Size = new Size(222, 23);
             txtUsuario.TabIndex = 37;
@@ -122,7 +122,7 @@
             btnEntrar.BackColor = SystemColors.ButtonHighlight;
             btnEntrar.Font = new Font("Microsoft PhagsPa", 10F, FontStyle.Bold, GraphicsUnit.Point);
             btnEntrar.ForeColor = SystemColors.Desktop;
-            btnEntrar.Location = new Point(318, 314);
+            btnEntrar.Location = new Point(328, 320);
             btnEntrar.Name = "btnEntrar";
             btnEntrar.Size = new Size(79, 30);
             btnEntrar.TabIndex = 42;
@@ -134,7 +134,7 @@
             // 
             pictureBox3.BackColor = SystemColors.ButtonHighlight;
             pictureBox3.Image = Properties.Resources.do_utilizador;
-            pictureBox3.Location = new Point(234, 216);
+            pictureBox3.Location = new Point(234, 220);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(27, 19);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
@@ -147,7 +147,7 @@
             label1.BackColor = Color.White;
             label1.Font = new Font("Microsoft PhagsPa", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(261, 198);
+            label1.Location = new Point(261, 200);
             label1.Name = "label1";
             label1.Size = new Size(59, 17);
             label1.TabIndex = 39;
@@ -158,7 +158,7 @@
             label2.AutoSize = true;
             label2.BackColor = Color.White;
             label2.Font = new Font("Microsoft PhagsPa", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(263, 238);
+            label2.Location = new Point(263, 246);
             label2.Name = "label2";
             label2.Size = new Size(49, 17);
             label2.TabIndex = 40;
@@ -180,9 +180,10 @@
             Controls.Add(label2);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "formTelaLogin";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "TelaLogin";
+            Text = "SENAC";
             FormClosing += TelaLogin_FormClosing;
             KeyDown += TelaLogin_KeyDown;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
