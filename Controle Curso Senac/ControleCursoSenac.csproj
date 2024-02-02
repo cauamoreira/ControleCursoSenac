@@ -13,7 +13,12 @@
 	  <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
 	  <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
 	  <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	  <ApplicationIcon>Senac logo.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Senac logo.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="EPPlus" Version="6.0.3" />

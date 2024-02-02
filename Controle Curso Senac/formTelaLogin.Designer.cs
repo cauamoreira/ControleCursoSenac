@@ -63,7 +63,7 @@
             // 
             picLoading.BackColor = Color.White;
             picLoading.Image = (Image)resources.GetObject("picLoading.Image");
-            picLoading.Location = new Point(307, 350);
+            picLoading.Location = new Point(318, 350);
             picLoading.Name = "picLoading";
             picLoading.Size = new Size(79, 42);
             picLoading.SizeMode = PictureBoxSizeMode.Zoom;
@@ -77,7 +77,7 @@
             label3.Cursor = Cursors.Hand;
             label3.Font = new Font("Microsoft PhagsPa", 10F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
             label3.ForeColor = Color.Navy;
-            label3.Location = new Point(289, 279);
+            label3.Location = new Point(297, 282);
             label3.Name = "label3";
             label3.Size = new Size(129, 18);
             label3.TabIndex = 45;
@@ -122,7 +122,7 @@
             btnEntrar.BackColor = SystemColors.ButtonHighlight;
             btnEntrar.Font = new Font("Microsoft PhagsPa", 10F, FontStyle.Bold, GraphicsUnit.Point);
             btnEntrar.ForeColor = SystemColors.Desktop;
-            btnEntrar.Location = new Point(307, 314);
+            btnEntrar.Location = new Point(318, 314);
             btnEntrar.Name = "btnEntrar";
             btnEntrar.Size = new Size(79, 30);
             btnEntrar.TabIndex = 42;
@@ -164,7 +164,7 @@
             label2.TabIndex = 40;
             label2.Text = "Senha:";
             // 
-            // TelaLogin
+            // formTelaLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -180,7 +180,7 @@
             Controls.Add(label2);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
-            Name = "TelaLogin";
+            Name = "formTelaLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "TelaLogin";
             FormClosing += TelaLogin_FormClosing;
